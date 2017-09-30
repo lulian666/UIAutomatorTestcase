@@ -5,6 +5,7 @@ package com.example.lulian.uiautomator.config;
  */
 
 public class Packages {
+    //just a note
     public static final String OSCHINA_PACKAGE_NAME = "net.oschina.app";
     public static final String OSCHINA_LAUNCH_ACTIVITY_NAME = "net.oschina.app.LaunchActivity";
 }
