@@ -9,7 +9,8 @@ import android.support.test.InstrumentationRegistry;
 
 public class WiFiSwitcher {
     public static void switchWiFi(boolean result){
-        Context context = InstrumentationRegistry.getInstrumentation().getContext();
+        //在模拟器上不好用啊
+        Context context = InstrumentationRegistry.getContext();
         WifiManager wifiManager = (WifiManager) context.getSystemService(context.WIFI_SERVICE);
         boolean wifi = wifiManager.isWifiEnabled();
         wifiManager.setWifiEnabled(result);

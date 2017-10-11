@@ -9,7 +9,7 @@ import android.support.test.InstrumentationRegistry;
  * Created by lulian on 2017/6/17.
  */
 
-public class OpenActivity {
+public class  OpenActivity {
     public static void openApps(String packageName, String activityName){
         Context context = InstrumentationRegistry.getContext();
         Intent launchIntent = new Intent();

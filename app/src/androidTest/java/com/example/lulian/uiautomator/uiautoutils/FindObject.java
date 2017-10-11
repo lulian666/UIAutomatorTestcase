@@ -1,5 +1,7 @@
 package com.example.lulian.uiautomator.uiautoutils;
 
+import android.support.test.InstrumentationRegistry;
+import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiSelector;
@@ -11,6 +13,7 @@ import android.support.test.uiautomator.UiSelector;
 public class FindObject {
     public static UiObject ById(String id) throws UiObjectNotFoundException {
         UiObject object = new UiObject(new UiSelector().resourceId(id));
+        UiObject object1 = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).findObject(new UiSelector().resourceId(id));
         CleverWait.checkObjectExistence(object,2000);
         return object;
     }

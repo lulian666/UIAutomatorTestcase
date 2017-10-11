@@ -1,12 +1,13 @@
 package com.example.lulian.uiautomator.testcase;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
 import android.support.test.uiautomator.UiObject;
+import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.UiScrollable;
+import android.support.test.uiautomator.UiSelector;
 
 import com.example.lulian.uiautomator.config.Packages;
 import com.example.lulian.uiautomator.framework.OpenActivity;
@@ -51,6 +52,9 @@ public class Login {
 
     @Test
     public void loginAndScreenshot() throws Exception {
+        UiObject2 hh = mDevice.findObject(By.checkable(true));
+        UiObject hhh = mDevice.findObject(new UiSelector().checkable(true));
+
         //切换到"我"页面，点击头像进入登陆页面
         minePage.clickMeButton();
         minePage.clickPortrait();
@@ -63,7 +67,7 @@ public class Login {
         UiObject endObject = FindObject.ById(MinePage.TEAM_ITEM_ID);
         SwipeBetweenUiObiects.swipeCenters(mDevice,startObject,endObject,100);
 
-        //截图，暂时也没能实现……
+
         //execCMD("chmod 777 /users/lulian/downloads/screencap.sh");
         //execCMD("adb shell /system/bin/screencap -p /sdcard/screenshot3.png");
     }
