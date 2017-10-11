@@ -35,9 +35,9 @@ import java.io.IOException;
 public class Login {
     private UiDevice mDevice;
     //实例化三个页面类
-    private MinePage minePage = new MinePage();
-    private LoginPage loginPage = new LoginPage();
-    private SettingPage settingPage = new SettingPage();
+//    private MinePage minePage = new MinePage();
+//    private LoginPage loginPage = new LoginPage();
+//    private SettingPage settingPage = new SettingPage();
 
     @Before
     public void setUp() throws Exception{
@@ -45,57 +45,57 @@ public class Login {
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         mDevice.pressHome();
         //打开app和相应活动
-        OpenActivity.openApps(Packages.OSCHINA_PACKAGE_NAME, Packages.OSCHINA_LAUNCH_ACTIVITY_NAME);
-        //防止弹框，若出现弹框则点击取消键避开
-        mDevice.registerWatcher(new String("alertcatcher"), UiWatchers.UpdateWatcher());
+//        OpenActivity.openApps(Packages.OSCHINA_PACKAGE_NAME, Packages.OSCHINA_LAUNCH_ACTIVITY_NAME);
+//        //防止弹框，若出现弹框则点击取消键避开
+//        mDevice.registerWatcher(new String("alertcatcher"), UiWatchers.UpdateWatcher());
     }
 
     @Test
     public void loginAndScreenshot() throws Exception {
-        UiObject2 hh = mDevice.findObject(By.checkable(true));
-        UiObject hhh = mDevice.findObject(new UiSelector().checkable(true));
+//        UiObject2 hh = mDevice.findObject(By.checkable(true));
+//        UiObject hhh = mDevice.findObject(new UiSelector().checkable(true));
+//
+//        //切换到"我"页面，点击头像进入登陆页面
+//        minePage.clickMeButton();
+//        minePage.clickPortrait();
+//        //实现登陆
+//        loginPage.textUsername("xzt875@126.com");
+//        loginPage.textPassword("13419926370qaz");
+//        loginPage.clickLoginButton();
+//        //滑动屏幕
+//        UiObject startObject = FindObject.ById(MinePage.QUESTION_ITEM_ID);
+//        UiObject endObject = FindObject.ById(MinePage.TEAM_ITEM_ID);
+//        SwipeBetweenUiObiects.swipeCenters(mDevice,startObject,endObject,100);
 
-        //切换到"我"页面，点击头像进入登陆页面
-        minePage.clickMeButton();
-        minePage.clickPortrait();
-        //实现登陆
-        loginPage.textUsername("xzt875@126.com");
-        loginPage.textPassword("13419926370qaz");
-        loginPage.clickLoginButton();
-        //滑动屏幕
-        UiObject startObject = FindObject.ById(MinePage.QUESTION_ITEM_ID);
-        UiObject endObject = FindObject.ById(MinePage.TEAM_ITEM_ID);
-        SwipeBetweenUiObiects.swipeCenters(mDevice,startObject,endObject,100);
 
-
-        //execCMD("chmod 777 /users/lulian/downloads/screencap.sh");
-        //execCMD("adb shell /system/bin/screencap -p /sdcard/screenshot3.png");
+//        execCMD("chmod 777 /users/lulian/downloads/screencap.sh");
+        execCMD("screencap /data/local/tmp/test.png");
     }
 
-//    private void execCMD(String cmd) throws RuntimeException, IOException, InterruptedException {
-//        Runtime runtime = Runtime.getRuntime();
-//        Process process = runtime.exec(cmd);
-//        process.waitFor();
-//
-//        int i = process.exitValue();
-//        if (i == 0){
-//            System.out.println("compelete");
-//        }else {
-//            System.out.println("fail");
-//        }
-//        process.destroy();
-//        process = null;
-//    }
+    private void execCMD(String cmd) throws RuntimeException, IOException, InterruptedException {
+        Runtime runtime = Runtime.getRuntime();
+        Process process = runtime.exec(cmd);
+        process.waitFor();
+
+        int i = process.exitValue();
+        if (i == 0){
+            System.out.println("compelete");
+        }else {
+            System.out.println("fail");
+        }
+        process.destroy();
+        process = null;
+    }
 
     @After
     public void tearDown() throws Exception{
         //注销账号，防止影响下次测试，啥样开始的就恢复原样
-        minePage.clickSettingButton();
-        settingPage.clickLogoutButton();
-        mDevice.removeWatcher("alertcatcher");
+//        minePage.clickSettingButton();
+//        settingPage.clickLogoutButton();
+//        mDevice.removeWatcher("alertcatcher");
         //退出app
-        mDevice.pressBack();
-        mDevice.pressBack();
-        mDevice.pressBack();
+//        mDevice.pressBack();
+//        mDevice.pressBack();
+//        mDevice.pressBack();
     }
 }
